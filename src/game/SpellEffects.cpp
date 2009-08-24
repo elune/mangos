@@ -1781,6 +1781,7 @@ void Spell::EffectDummy(uint32 i)
             // Cleansing Totem
             if((m_spellInfo->SpellFamilyFlags & UI64LIT(0x0000000004000000)) && m_spellInfo->SpellIconID==1673)
             {
+                m_caster->CastSpell(unitTarget, 3137, true);
                 m_caster->CastSpell(unitTarget, 52025, true);
                 return;
             }
