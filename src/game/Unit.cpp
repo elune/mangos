@@ -6598,6 +6598,12 @@ bool Unit::HandleProcTriggerSpell(Unit *pVictim, uint32 damage, Aura* triggeredB
                 break;
             }
             case SPELLFAMILY_HUNTER:
+				if (auraSpellInfo->SpellIconID==3247) //na 3.1.3 samo Piercing Shots e s SpellIconID == 3247 i Proc Trigger Spell
+				{
+					basepoints0 = damage * triggerAmount / 400;
+					trigger_spell_id = 63468;
+				    target = pVictim;
+				}
                 break;
             case SPELLFAMILY_PALADIN:
             {
