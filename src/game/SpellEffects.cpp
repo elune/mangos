@@ -1836,8 +1836,8 @@ void Spell::EffectDummy(uint32 i)
                     if (Aura *dummy = owner->GetDummyAura(55441))
                         damage+=dummy->GetModifier()->m_amount;
                 // Regenerate 6% of Total Mana Every 3 secs
-                int32 EffectBasePoints0 = unitTarget->GetMaxPower(POWER_MANA)  * damage / 100;
-                m_caster->CastCustomSpell(unitTarget, 39609, &EffectBasePoints0, NULL, NULL, true, NULL, NULL, m_originalCasterGUID);
+				int32 increase = unitTarget->GetMaxPower(POWER_MANA) * 6 / 100;
+				unitTarget->ModifyPower(POWER_MANA, increase);
                 return;
             }
             // Lava Lash
