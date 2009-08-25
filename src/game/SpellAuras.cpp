@@ -4899,9 +4899,12 @@ void Aura::HandleAuraModIncreaseHealth(bool apply, bool Real)
         case 34511:                                         // Valor (Bulwark of Kings, Bulwark of the Ancient Kings)
         case 44055:                                         // Tremendous Fortitude (Battlemaster's Alacrity)
         case 50322:                                         // Survival Instincts
+	   case 55233:							 // Vampiric Blood
         {
             if(Real)
             {
+				if(GetId() == 55233 && apply)
+				    m_modifier.m_amount = int32(m_target->GetMaxHealth()*0.15);
                 if(apply)
                 {
                     m_target->HandleStatModifier(UNIT_MOD_HEALTH, TOTAL_VALUE, float(m_modifier.m_amount), apply);
